@@ -22,5 +22,5 @@ Route::get('/posts', function (){
 })->name('posts');
 
 Route::get('/posts/create', function (){
-    return view('posts');
-})->name('posts');
+    return view('create-post');
+})->name('create-post');
