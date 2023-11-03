@@ -12,8 +12,6 @@ class PostsLists extends Component
     public $search;
     public $searchDate;
 
-    public function createPost(){}
-
     public function mount()
     {
         $this->searchDate = Carbon::now()->format('Y-m-d');
@@ -22,7 +20,6 @@ class PostsLists extends Component
     public function render()
     {
         $this->allPosts = PostsModel::getAllPosts($this->search, $this->searchDate);
-        // dd($this->allPosts);
         return view('livewire.posts-lists', [
             'posts' => $this->allPosts
         ]);
@@ -31,7 +28,6 @@ class PostsLists extends Component
     public function update()
     {
         $this->allPosts = PostsModel::getAllPosts($this->search, $this->searchDate);
-        dd($this->allPosts);
         return view('livewire.posts-lists', [
             'posts' => $this->allPosts
         ]);

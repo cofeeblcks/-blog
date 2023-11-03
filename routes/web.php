@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+// Login
+Route::get('/login', function (){
+    return view('login');
+})->name('login');
+
+// Ruta de posts
 Route::get('/posts', function (){
     return view('posts');
 })->name('posts');
@@ -25,6 +31,13 @@ Route::get('/posts/create', function (){
     return view('create-post');
 })->name('create-post');
 
+// Ruta de usuarios
 Route::get('/user/register', function (){
     return view('register-user');
 })->name('register-user');
+
+// Route::auth();
+
+Route::get('/users', function (){
+    return view('users');
+})->name('users');
