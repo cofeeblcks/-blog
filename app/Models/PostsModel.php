@@ -33,7 +33,7 @@ class PostsModel extends Model
             ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at'))
             ->where('state', '=', '1')
             ->where(DB::raw('DATE(created_at)'), '=', strval($dateSearch))
-            ->where('description', 'like', '%'.$textSearch.'%')
+            ->where('title', 'like', '%'.$textSearch.'%')
             ->orderBy('created_at', 'desc')
             ->get();
         }

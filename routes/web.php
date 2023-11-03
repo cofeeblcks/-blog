@@ -24,3 +24,7 @@ Route::get('/posts', function (){
 Route::get('/posts/create', function (){
     return view('create-post');
 })->name('create-post');
+
+Route::get('/user/register', function (){
+    return view('register-user');
+})->name('register-user');
