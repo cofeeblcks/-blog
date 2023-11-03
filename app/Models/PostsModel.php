@@ -19,7 +19,7 @@ class PostsModel extends Model
     ];
 
     public static function getAllPosts(){
-        $allPosts = DB::table('posts')->get();
+        $allPosts = DB::table('posts')->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at') )->where('state', '=', '1')->get();
         return $allPosts;
     }
 }

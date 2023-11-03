@@ -36,7 +36,29 @@ h1, h2, h3, h4, h5 {
 }
 
 .bg-accent{
+    background-color: $color-accent !important;
+}
+
+.bg-green{
+    background-color: $color-green !important;
+}
+
+.color-white{
+    color: #fff !important;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.btn-blue{
     background-color: $color-accent;
+    color: #fff;
+    cursor: pointer;
+    &:hover{
+        background-color: rgba($color-accent, .9);
+        color: #fff;
+    }
 }
 
 .btn-home{
@@ -57,7 +79,7 @@ h1, h2, h3, h4, h5 {
 
 .container-wrap {
 	position: relative;
-    height: calc(100vh - 50px);
+    // height: calc(100vh - 50px);
     .list-post{
         padding-top: 60px;
     }
