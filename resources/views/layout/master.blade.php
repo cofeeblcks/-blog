@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-accent">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog">
+                    <!-- <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog"> -->
                     Blog
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +29,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('posts') }}">Posts</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register-user') }}">Register</a>
-                        </li>
+                        @if ( !session('status'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register-user') }}">Register</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users') }}">Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"  href="{{ route('logout') }}">Logout</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>

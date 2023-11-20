@@ -1,6 +1,6 @@
 <div>
-    @if( session('message') )
-    <div class="alert alert-success">{{ session('message') }}</div>
+    @if( session('error') )
+        <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
     <form wire:submit.prevent="login">

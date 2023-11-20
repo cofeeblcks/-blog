@@ -6,37 +6,37 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class UsersModel extends Model
+class Posts extends Model
 {
     use HasFactory;
-    protected $table = 'users';
+
+    protected $table = 'posts';
 
     protected $fillable = [
-        'document',
-        'first_name',
-        'last_name',
-        'email',
-        'birthdate',
-        'password'
+        'id_user',
+        'title',
+        'description'
     ];
 
-    public static function getAllUsers($textSearch)
+    public static function getAllPosts($textSearch, $dateSearch)
     {
         // Montamos la consulta, formateando la fecha, para solo mostrar la fecha y no hora, y ordenamos para mostrar lo mas recientes
-        $allUsers = DB::table('users')
+        $allPosts = DB::table('posts')
         ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at'))
         ->where('state', '=', '1')
+        ->where(DB::raw('DATE(created_at)'), '=', strval($dateSearch))
         ->orderBy('created_at', 'desc')
         ->get();
 
         if(!empty($textSearch)){
-            $allUsers = DB::table('users')
+            $allPosts = DB::table('posts')
             ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at'))
             ->where('state', '=', '1')
-            ->where('first_name', 'like', '%'.$textSearch.'%')
+            ->where(DB::raw('DATE(created_at)'), '=', strval($dateSearch))
+            ->where('title', 'like', '%'.$textSearch.'%')
             ->orderBy('created_at', 'desc')
             ->get();
         }
-        return $allUsers;
+        return $allPosts;
     }
 }

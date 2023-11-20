@@ -8,6 +8,6 @@
                 <a href="{{ route('create-post') }}" class="btn btn-block btn-blue">Crate entry</a>
             </div> -->
         </div>
-        <livewire:users-lists/>
+        <livewire:users-list/>
     </div>
 @endsection

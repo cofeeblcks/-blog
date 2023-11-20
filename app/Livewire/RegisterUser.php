@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Models\UsersModel;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -56,7 +56,7 @@ class RegisterUser extends Component
                 ->count();
                 if ($reservation == 0) {
                     try {
-                        UsersModel::create([
+                        User::create([
                             'document' => $this->document,
                             'first_name' => $this->firstName,
                             'last_name' => $this->lastName,

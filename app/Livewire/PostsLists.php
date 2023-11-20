@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\PostsModel;
+use App\Models\Posts;
 use Carbon\Carbon;
 
 class PostsLists extends Component
@@ -19,7 +19,7 @@ class PostsLists extends Component
 
     public function render()
     {
-        $this->allPosts = PostsModel::getAllPosts($this->search, $this->searchDate);
+        $this->allPosts = Posts::getAllPosts($this->search, $this->searchDate);
         return view('livewire.posts-lists', [
             'posts' => $this->allPosts
         ]);
@@ -27,7 +27,7 @@ class PostsLists extends Component
 
     public function update()
     {
-        $this->allPosts = PostsModel::getAllPosts($this->search, $this->searchDate);
+        $this->allPosts = Posts::getAllPosts($this->search, $this->searchDate);
         return view('livewire.posts-lists', [
             'posts' => $this->allPosts
         ]);

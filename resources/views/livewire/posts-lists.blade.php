@@ -9,7 +9,7 @@
             <div class="col-xs-12 col-md-6">
                 <!-- Incluimos campo de texto para busqueda por titulo -->
                 <label>Search by title</label>
-                <input class="form-control w-100" wire:model.lazy="search" id="search" type="search" placeholder="Search posts by title...">
+                <input class="form-control w-100" wire:model="search" wire:keydown.enter="search" id="search" type="search" placeholder="Search posts by title...">
             </div>
         </div>
     </div>

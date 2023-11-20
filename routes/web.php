@@ -22,6 +22,8 @@ Route::get('/login', function (){
     return view('login');
 })->name('login');
 
+Route::get('/logout', '\App\Livewire\Login@logout')->name('logout');
+
 // Ruta de posts
 Route::get('/posts', function (){
     return view('posts');
@@ -29,7 +31,7 @@ Route::get('/posts', function (){
 
 Route::get('/posts/create', function (){
     return view('create-post');
-})->name('create-post');
+})->name('create-post')->middleware('auth');
 
 // Ruta de usuarios
 Route::get('/user/register', function (){
@@ -40,4 +42,4 @@ Route::get('/user/register', function (){
 
 Route::get('/users', function (){
     return view('users');
-})->name('users');
+})->name('users')->middleware('auth');
