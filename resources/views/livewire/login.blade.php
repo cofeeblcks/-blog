@@ -1,6 +1,6 @@
 <div>
     @if( session('message') )
-        <div class="alert alert-success">{{ session('message') }}</div>
+    <div class="alert alert-success">{{ session('message') }}</div>
     @endif
 
     <form wire:submit.prevent="login">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="d-flex justify-content-center mt-5">
-            <button type="submit" class="btn btn-block btn-dark">Login</button>
+            <button type="submit" class="btn btn-block btn-dark">Sign Me In</button>
         </div>
     </form>
 </div>

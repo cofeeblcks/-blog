@@ -13,7 +13,7 @@ class UsersModel extends Model
 
     protected $fillable = [
         'document',
-        'fisrt_name',
+        'first_name',
         'last_name',
         'email',
         'birthdate',

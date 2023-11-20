@@ -13,7 +13,10 @@
     <header class="header-nav">
         <nav class="navbar navbar-expand-md navbar-dark bg-accent">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Blog</a>
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog">
+                    Blog
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

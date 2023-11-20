@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_role')->default(2);
             $table->string('document', 50)->unique();
-            $table->string('fisrt_name', 150);
+            $table->string('first_name', 150);
             $table->string('last_name', 150);
             $table->string('email',200)->unique();
             $table->date("birthdate");
@@ -36,7 +36,7 @@ return new class extends Migration
             [
                 'id_role' => 1,
                 'document' => '123456789',
-                'fisrt_name' => 'Hadik Andres',
+                'first_name' => 'Hadik Andres',
                 'last_name' => 'Chavez Villafañe',
                 'email' => 'chavezhadik@gmail.com',
                 'birthdate' => '1988-01-15',
