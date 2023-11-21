@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Events\RefreshPosts;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Posts;
 use Livewire\Component;
@@ -27,7 +28,7 @@ class CreatePost extends Component
         $idUser = Auth::user()->id;
 
         try {
-            Posts::create([
+            $post = Posts::create([
                 'id_user' => $idUser,
                 'title' => $this->title,
                 'description' => $this->description
@@ -35,7 +36,11 @@ class CreatePost extends Component
 
             session()->flash('message', 'The entry has register succesfully');
 
+            // Lazamos el evento para notificar
+            event(new RefreshPosts($post));
+            
             $this->reset();
+
         } catch (\Exception $e) {
             session()->flash('warning', 'Exception. Verify your SQL: ' . $e);
         }
