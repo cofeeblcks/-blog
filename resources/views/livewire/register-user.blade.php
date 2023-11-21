@@ -44,6 +44,12 @@
             @error('password') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control" id="password" name="password_confirmation" wire:model="password_confirmation" autocomplete="current-password">
+            @error('password') <span class="text-danger">{{ $message }}</span> @enderror
+        </div>
+
         <div class="d-flex justify-content-end mt-5">
             <button type="submit" class="btn btn-block btn-dark">Register user</button>
         </div>

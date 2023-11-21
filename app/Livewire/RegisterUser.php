@@ -17,6 +17,7 @@ class RegisterUser extends Component
     public $email;
     public $birthDate;
     public $password;
+    public $password_confirmation;
 
     protected $rules = [
         'document' => ['required'],
@@ -24,7 +25,8 @@ class RegisterUser extends Component
         'lastName' => ['required'],
         'email' => ['required', 'email'],
         'birthDate' => ['required'],
-        'password' => ['required']
+        'password' => ['required', 'confirmed'],
+        'password_confirmation' => ['required'],
     ];
 
 

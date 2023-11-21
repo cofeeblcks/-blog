@@ -1,10 +1,29 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="container list-post" style="height: calc(100vh - 50px);">
-        <div class="mt-5 mb-5 d-flex justify-content-between align-items-center">
-            <h1>Form register user</h1>
+    <div class="container-login" style="height: calc(100vh - 50px);">
+        <div class="authincation">
+            <div class="container">
+                <div class="row justify-content-center h-100 align-items-center">
+                    <div class="col-md-6">
+                        <div class="authincation-content">
+                            <div class="row no-gutters">
+                                <div class="col-xl-12">
+                                    <div class="auth-form">
+                                        <div class="text-center mb-3">
+                                            <a href="/">
+                                                <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog" width="150">
+                                            </a>
+                                        </div>
+                                        <h4 class="text-center mb-4 color-white">Register user</h4>
+                                        <livewire:register-user/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <livewire:register-user/>
     </div>
 @endsection
