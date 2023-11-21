@@ -104,7 +104,7 @@ h5 {
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
-		background-image: url("../assets/img/banner.jpg");
+		background-image: url("../../public/assets/img/banner.jpg");
 		height: calc(100vh - 50px);
 		min-height: 700px;
 		position: relative;
@@ -195,8 +195,12 @@ footer {
 }
 
 // Login styles
+.container-login {
+	background-image: url("../../public/assets/img/bg-login.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 .authincation {
-	background: var(--rgba-primary-1);
 	display: flex;
 	min-height: 100vh;
 }
@@ -249,13 +253,11 @@ footer {
 }
 
 .authincation-content {
-	background: #fff;
+	background: rgba($color: #eaeaea, $alpha: 0.3);
 	box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.15);
 	border-radius: 5px;
-}
-[data-theme-version="dark"] .authincation-content {
-	background: #212130;
-	box-shadow: none;
+	padding: 30px;
+	color: #fff;
 }
 .authincation-content.style-1 {
 	background: rgba(255, 255, 255, 0.5);
@@ -264,21 +266,6 @@ footer {
 .authincation-content.style-1 .form-control {
 	background: rgba(255, 255, 255, 0.6);
 	border-radius: 5px;
-}
-.authincation-content.style-1 .user-icon {
-	height: 100px;
-	background: var(--primary);
-	width: 100px;
-	text-align: center;
-	border-radius: 100px;
-	line-height: 100px;
-	margin-left: auto;
-	font-size: 60px;
-	text-align: center;
-	color: white;
-	margin-right: auto;
-	margin-top: -100px;
-	margin-bottom: 20px;
 }
 .authincation-content.style-2 {
 	background: transparent;

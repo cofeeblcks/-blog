@@ -33,13 +33,13 @@ Route::get('/posts/create', function (){
     return view('create-post');
 })->name('create-post')->middleware('auth');
 
-// Ruta de usuarios
-Route::get('/user/register', function (){
-    return view('register-user');
-})->name('register-user');
+Route::middleware(['auth', 'role:user'])->group(function () {
+    // Ruta de usuarios
+    Route::get('/user/register', function (){
+        return view('register-user');
+    })->name('register-user');
 
-// Route::auth();
-
-Route::get('/users', function (){
-    return view('users');
-})->name('users')->middleware('auth');
+    Route::get('/users', function (){
+        return view('users');
+    })->name('users')->middleware('auth');
+});

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog CofeeBlcks</title>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/sass/errors-pages.scss', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-accent">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <!-- <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog"> -->
+                    <img src="{{ asset('assets/img/logo.png') }} " alt="Logo blog" width="50">
                     Blog
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,9 +37,11 @@
                                 <a class="nav-link" href="{{ route('register-user') }}">Register</a>
                             </li>
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users') }}">Users</a>
-                            </li>
+                            @if( Auth::user()->id_role == 1 )
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('users') }}">Users</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link"  href="{{ route('logout') }}">Logout</a>
                             </li>
