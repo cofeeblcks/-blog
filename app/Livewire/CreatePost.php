@@ -2,7 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Events\RefreshPosts;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Posts;
 use Livewire\Component;
@@ -17,6 +16,8 @@ class CreatePost extends Component
         'description' => ['required', 'min:10']
     ];
 
+    // protected $listeners = ['postUpdated' => 'updateListViewPosts'];
+
     public function render()
     {
         return view('livewire.create-post');
@@ -28,16 +29,13 @@ class CreatePost extends Component
         $idUser = Auth::user()->id;
 
         try {
-            $post = Posts::create([
+            Posts::create([
                 'id_user' => $idUser,
                 'title' => $this->title,
                 'description' => $this->description
             ]);
 
             session()->flash('message', 'The entry has register succesfully');
-
-            // Lazamos el evento para notificar
-            event(new RefreshPosts());
             
             $this->reset();
 

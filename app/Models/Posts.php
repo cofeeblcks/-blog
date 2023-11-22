@@ -22,21 +22,20 @@ class Posts extends Model
     {
         // Montamos la consulta, formateando la fecha, para solo mostrar la fecha y no hora, y ordenamos para mostrar lo mas recientes
         $allPosts = DB::table('posts')
-        ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at'))
+        ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created'))
         ->where('state', '=', '1')
         ->where(DB::raw('DATE(created_at)'), '=', strval($dateSearch))
-        ->orderBy('created_at', 'desc')
-        ->get();
+        ->orderBy('created_at', 'desc');
 
         if(!empty($textSearch)){
             $allPosts = DB::table('posts')
-            ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created_at'))
+            ->select('id', 'title', 'description', DB::raw('DATE(created_at) AS created'))
             ->where('state', '=', '1')
             ->where(DB::raw('DATE(created_at)'), '=', strval($dateSearch))
             ->where('title', 'like', '%'.$textSearch.'%')
-            ->orderBy('created_at', 'desc')
-            ->get();
+            ->orderBy('created_at', 'desc');
         }
+        // dd($allPosts);
         return $allPosts;
     }
 }

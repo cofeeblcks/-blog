@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" wire:poll="updateListViewPosts">
     <div class="col-xs-12 mb-5">
         <div class="row">
             <div class="col-xs-12 col-md-6">
@@ -26,7 +26,7 @@
                         <p class="card-text text-start mb-0">{{ $post->description }}</p>
                     </div>
                     <div class="card-footer">
-                        <p class="text-end text-muted fst-italic mb-0">Date publish {{ $post->created_at }}</p>
+                        <p class="text-end text-muted fst-italic mb-0">Date publish {{ $post->created }}</p>
                     </div>
                 </div>
             </div>
