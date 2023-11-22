@@ -5,12 +5,19 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Posts;
 use Carbon\Carbon;
+use Livewire\Attributes\On;
 
 class PostsLists extends Component
 {
-    public $allPosts;
-    public $search;
-    public $searchDate;
+    public $posts;
+    public $search = '';
+    public $searchDate = '';
+
+    #[On('post-created')] 
+    public function refreshPosts()
+    {
+        $this->posts = Posts::all();
+    }
 
     public function mount()
     {
@@ -19,17 +26,9 @@ class PostsLists extends Component
 
     public function render()
     {
-        $this->allPosts = Posts::getAllPosts($this->search, $this->searchDate);
+        $this->posts = Posts::getAllPosts($this->search, $this->searchDate);
         return view('livewire.posts-lists', [
-            'posts' => $this->allPosts
-        ]);
-    }
-
-    public function update()
-    {
-        $this->allPosts = Posts::getAllPosts($this->search, $this->searchDate);
-        return view('livewire.posts-lists', [
-            'posts' => $this->allPosts
+            'posts' => $this->posts
         ]);
     }
 }

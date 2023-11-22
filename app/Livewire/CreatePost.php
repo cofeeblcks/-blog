@@ -37,7 +37,7 @@ class CreatePost extends Component
             session()->flash('message', 'The entry has register succesfully');
 
             // Lazamos el evento para notificar
-            event(new RefreshPosts($post));
+            event(new RefreshPosts());
             
             $this->reset();
 

@@ -14,14 +14,15 @@
 
 @push('scripts')
 <script>
-    // Livewire.on('refreshPosts', () => {
-    //     // Call a Livewire method to refresh the posts
-    //     Livewire.emit('refresh');
-    // });
-    Echo.channel('posts')
-        .listen('PostUpdated', (e) => {
-            console.log('Post Updated', e);
-            // Update your DOM here with the updated post data.
+    document.addEventListener('livewire:load', function () {
+        Livewire.on('refreshPosts', function () {
+            Livewire.refresh();
         });
+    });
+    // Echo.channel('posts')
+    //     .listen('PostUpdated', (e) => {
+    //         console.log('Post Updated', e);
+    //         // Update your DOM here with the updated post data.
+    //     });
 </script>
 @endpush

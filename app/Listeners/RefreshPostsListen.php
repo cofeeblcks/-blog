@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\RefreshPosts;
+use App\Models\Posts;
 use Livewire\Livewire;
 
 class RefreshPostsListen
@@ -18,9 +19,12 @@ class RefreshPostsListen
     /**
      * Handle the event.
      */
-    public function handle(RefreshPosts $event): void
+    public function handle(RefreshPosts $event)
     {
-        // dd($event);
-        Livewire::emit('refreshPosts');
+        event('refreshPosts');
+        // Livewire::component('posts-lists', ['posts' => Posts::all()])->refreshPosts();
+        // Livewire::emit('refreshPosts');
+        // Livewire::refresh();
+        // Livewire::dispatch('refreshPosts');
     }
 }
